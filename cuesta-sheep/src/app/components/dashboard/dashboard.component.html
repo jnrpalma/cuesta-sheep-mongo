@@ -1,0 +1,57 @@
+<div class="dashboard">
+  <po-loading-overlay
+    *ngIf="isLoading"
+    [p-screen-lock]="true"
+    p-text="Saindo..."
+  ></po-loading-overlay>
+  <div class="sidebar">
+    <h2>Bem-vindo!</h2>
+    <div class="user-info">
+      <po-avatar [p-src]="profileImage" p-size="sm"></po-avatar>
+      <p>{{ userName }}</p>
+    </div>
+    <ul>
+      <li>
+        <po-button
+        p-label="Overview"
+        p-kind="tertiary"
+        p-icon="po-icon-device-desktop"
+        (p-click)="navigateTo('overview')"
+      ></po-button>
+      </li>
+      <li>
+        <po-button
+        p-label="Cadastrar"
+        p-kind="tertiary"
+        p-icon="po-icon-list"
+        (p-click)="navigateTo('cadastrar')"
+      ></po-button>
+      </li>
+      <li>
+        <po-button
+        p-label="Animais"
+        p-kind="tertiary"
+        p-icon="po-icon-agro-business"
+        (p-click)="navigateTo('animais')"
+      ></po-button>
+      </li>
+      <li>
+        <po-button
+        p-label="Lotes"
+        p-kind="tertiary"
+        p-icon="po-icon-agro-business"
+        (p-click)="navigateTo('lotes')"
+      ></po-button>
+      </li>
+    </ul>
+    <po-button
+      p-label="Logout"
+      p-kind="secondary"
+      p-danger="true"
+      (p-click)="logout()"
+    ></po-button>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

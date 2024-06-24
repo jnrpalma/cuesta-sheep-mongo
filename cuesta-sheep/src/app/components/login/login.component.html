@@ -1,0 +1,44 @@
+<div class="login-container" style="position: relative;">
+  <po-loading-overlay *ngIf="isLoading" [p-screen-lock]="true" p-text="Redirecionando..."></po-loading-overlay>
+  <div class="login-box">
+    <div class="login-left" [ngClass]="{ 'forgot-password-active': isForgotPassword }">
+      <div class="login-form">
+        <h1>Bem-vindo !</h1>
+        <p>Entre com suas credenciais.</p>
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+          <div>
+            <po-email name="email" p-label="Email" [(ngModel)]="email" p-clean="true" required></po-email>
+          </div>
+          <div>
+            <po-password name="password" p-label="Senha" [(ngModel)]="password" required></po-password>
+          </div>
+          <div class="links-container">
+            <po-link p-label="Cadastre-se" (p-action)="navigateToRegister()"></po-link>
+            <po-link p-label="Esqueceu a senha?" (p-action)="toggleForgotPassword()"></po-link>
+          </div>
+          <div class="button-container">
+            <po-button p-label="ENTRAR" (p-click)="onSubmit()"></po-button>
+          </div>
+        </form>
+      </div>
+      <div class="forgot-password-form">
+        <h1>Esqueceu a senha ?</h1>
+        <p>Digite seu endereço de e-mail e enviaremos um link para redefinir sua senha.</p>
+        <form (ngSubmit)="onForgotPasswordSubmit()" #forgotPasswordForm="ngForm">
+          <div>
+            <po-email name="email" p-label="Email" [(ngModel)]="email" required></po-email>
+          </div>
+          <div class="button-container">
+            <po-button p-label="ENVIAR" (p-click)="onForgotPasswordSubmit()"></po-button>
+          </div>
+        </form>
+        <div class="back-to-login">
+          <po-link p-label="Voltar ao login" (p-action)="toggleForgotPassword()"></po-link>
+        </div>
+      </div>
+    </div>
+    <div class="login-right">
+      <img src="assets/ovino-login.jpg" alt="Imagem de login">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+.sidebar {
+  width: 200px;
+  background-color: #ececec;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; /* Centralizar o conteúdo horizontalmente */
+}
+
+.sidebar h2 {
+  margin-top: 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center; /* Alinhar itens verticalmente ao centro */
+  gap: 10px; /* Espaço entre o avatar e o nome */
+}
+
+.sidebar po-avatar {
+  margin-bottom: 0; /* Remover a margem inferior padrão */
+}
+
+.sidebar p {
+  margin: 0;
+  font-size: 16px; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+.sidebar ul li a .fas {
+  margin-right: 10px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.charts-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.charts-column .card {
+  min-height: 240px;
+}
+
+.charts-column po-chart {
+  flex: 1;
+  min-height: 200px;
+}
+
+.sidebar po-button {
+  margin-top: auto;
+}
+
+.dashboard {
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar h2,
+.sidebar p,
+.sidebar ul li,
+.sidebar .po-button,
+.content {
+  font-family: 'Poppins', sans-serif;
+}
