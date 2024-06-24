@@ -40,17 +40,19 @@ export class RegisterComponent {
     fileInput.click();
   }
 
-  async onSubmit() {
+  onSubmit() {
     if (this.firstName && this.email && this.password && this.password === this.confirmPassword) {
       this.isLoading = true;
-      try {
-        const displayName = this.firstName;
-        await this.authService.register(this.email, this.password, displayName, this.profileImage);
-      } catch (error) {
-        console.log('Error during registration:', error);
-      } finally {
+      const displayName = this.firstName;
+      this.authService.register(this.email, this.password, displayName, this.profileImage).subscribe(response => {
         this.isLoading = false;
-      }
+        if (response) {
+          this.router.navigate(['/dashboard/overview']);
+        }
+      }, error => {
+        console.log('Error during registration:', error);
+        this.isLoading = false;
+      });
     } else {
       console.log('Please fill all fields correctly');
     }
